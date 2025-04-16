@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 //import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import social media icons
 
 const Layout = () => {
+  
   return (
     <div style={{ padding: "20px", borderRadius: "12px" }}>
       <div
@@ -162,69 +163,74 @@ const Layout = () => {
       <hr style={{ border: "1px solid #ddd", margin: "20px 0" }} />
 
       {/* About Section */}
-      <div style={{ padding: "20px", textAlign: "center" }}>
-        <h2>About Us</h2>
-      </div>
-
       <div
+  style={{
+    display: "flex",
+    justifyContent: "space-around",
+    padding: "40px 20px",
+    gap: "20px",
+  }}
+>
+  {[
+    {
+      title: "WHO ARE WE",
+      color: "#2e7d32",
+      bg: "#c8e6c9",
+      text: "Market x connects buyers and sellers worldwide, offering a seamless shopping experience with curated products.",
+    },
+    {
+      title: "WHAT WE OFFER",
+      color: "#880e4f",
+      bg: "#f8bbd0",
+      text: "From handmade crafts to the latest tech gadgets, we provide a diverse range of high-quality products at competitive prices.",
+    },
+    {
+      title: "HOW IT WORKS",
+      color: "#1565c0",
+      bg: "#bbdefb",
+      text: "Buyers can browse and purchase in a few clicks, while sellers can easily list and manage their products.",
+    },
+    {
+      title: "OUR COMMITMENT",
+      color: "#e65100",
+      bg: "#ffe0b2",
+      text: "We are committed to fair trade, eco-friendly packaging, and supporting small businesses globally.",
+    },
+  ].map((item, index) => (
+    <div
+      key={index}
+      style={{
+        backgroundColor: item.bg,
+        padding: "30px",
+        borderRadius: "12px",
+        textAlign: "left",
+        flex: "1",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease", // Smooth hover effect
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "scale(1.05)"; // Scale up on hover
+        e.currentTarget.style.boxShadow = "0px 10px 20px rgba(0, 0, 0, 0.2)"; // Add shadow on hover
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "scale(1)"; // Reset scale
+        e.currentTarget.style.boxShadow = "none"; // Reset shadow
+      }}
+    >
+      <h3
         style={{
-          display: "flex",
-          justifyContent: "space-around",
-          padding: "40px 20px",
-          gap: "20px",
+          margin: "0 0 10px",
+          fontSize: "1.4em",
+          color: item.color,
         }}
       >
-        {[
-          {
-            title: "WHO ARE WE",
-            color: "#2e7d32",
-            bg: "#c8e6c9",
-            text: "Market x connects buyers and sellers worldwide, offering a seamless shopping experience with curated products.",
-          },
-          {
-            title: "WHAT WE OFFER",
-            color: "#880e4f",
-            bg: "#f8bbd0",
-            text: "From handmade crafts to the latest tech gadgets, we provide a diverse range of high-quality products at competitive prices.",
-          },
-          {
-            title: "HOW IT WORKS",
-            color: "#1565c0",
-            bg: "#bbdefb",
-            text: "Buyers can browse and purchase in a few clicks, while sellers can easily list and manage their products.",
-          },
-          {
-            title: "OUR COMMITMENT",
-            color: "#e65100",
-            bg: "#ffe0b2",
-            text: "We are committed to fair trade, eco-friendly packaging, and supporting small businesses globally.",
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            style={{
-              backgroundColor: item.bg,
-              padding: "30px",
-              borderRadius: "12px",
-              textAlign: "left",
-              flex: "1",
-            }}
-          >
-            <h3
-              style={{
-                margin: "0 0 10px",
-                fontSize: "1.4em",
-                color: item.color,
-              }}
-            >
-              {item.title}
-            </h3>
-            <p style={{ margin: "10px 0", fontSize: "1em", lineHeight: "1.6" }}>
-              {item.text}
-            </p>
-          </div>
-        ))}
-      </div>
+        {item.title}
+      </h3>
+      <p style={{ margin: "10px 0", fontSize: "1em", lineHeight: "1.6" }}>
+        {item.text}
+      </p>
+    </div>
+  ))}
+</div>
 
       {/* Trending Categories Section */}
       <div style={{ padding: "20px", textAlign: "center" }}>
@@ -320,67 +326,79 @@ const Layout = () => {
 
       {/* Contact Form Section */}
       <div
-        style={{
-          padding: "20px",
-          borderRadius: "12px",
-          backgroundColor: "#f0f0f0",
-          width: "500px",
-          margin: "0 auto",
-        }}
-      >
-        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
-          Contact Us
-        </h2>
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            maxWidth: "600px",
-            margin: "0 auto",
-            gap: "15px",
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Your Name"
-            style={{
-              padding: "10px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
-          />
-          <input
-            type="email"
-            placeholder="Your Email"
-            style={{
-              padding: "10px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
-          />
-          <textarea
-            placeholder="Your Message"
-            style={{
-              padding: "10px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
-          ></textarea>
-          <button
-            type="submit"
-            style={{
-              backgroundColor: "black",
-              color: "white",
-              padding: "10px 15px",
-              borderRadius: "5px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Submit
-          </button>
-        </form>
-      </div>
+  style={{
+    padding: "20px",
+    borderRadius: "12px",
+    backgroundColor: "black", // Black background
+    border: "2px solid white", // White border
+    width: "500px",
+    margin: "0 auto",
+    marginBottom: "40px",
+    boxShadow: "0px 5px 15px rgba(255,255,255,0.2)", // Subtle white shadow
+  }}
+>
+  <h2 style={{ textAlign: "center", marginBottom: "20px", color: "white" }}>
+    Contact Us
+  </h2>
+  <form
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      maxWidth: "600px",
+      margin: "0 auto",
+      gap: "15px",
+    }}
+  >
+    <input
+      type="text"
+      placeholder="Your Name"
+      style={{
+        padding: "10px",
+        borderRadius: "8px",
+        border: "1px solid white", // White border
+        backgroundColor: "white", // Black background
+        color: "black", // White text
+      }}
+    />
+    <input
+      type="email"
+      placeholder="Your Email"
+      style={{
+        padding: "10px",
+        borderRadius: "8px",
+        border: "1px solid white", // White border
+        backgroundColor: "black", // Black background
+        color: "white", // White text
+      }}
+    />
+    <textarea
+      placeholder="Your Message"
+      style={{
+        padding: "10px",
+        borderRadius: "8px",
+        border: "1px solid white", // White border
+        backgroundColor: "white", // Black background
+        color: "black", // White text
+        minHeight: "100px", // Adjust height for better usability
+      }}
+    ></textarea>
+    <button
+      type="submit"
+      style={{
+        backgroundColor: "white", // White button
+        color: "black", // Black text
+        padding: "12px 20px",
+        borderRadius: "8px",
+        border: "none",
+        cursor: "pointer",
+        fontWeight: "bold",
+        fontSize: "16px",
+      }}
+    >
+      Submit
+    </button>
+  </form>
+</div>
 
       {/* Footer Section */}
       {/* Footer Section */}
