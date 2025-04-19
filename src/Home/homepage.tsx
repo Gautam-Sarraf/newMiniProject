@@ -14,6 +14,11 @@ const Layout = () => {
           maxWidth: "1200px",
           margin: "0 auto",
         }}
+
+
+
+
+        
       >
         {/* Container for the whole layout */}
 
