@@ -1,9 +1,11 @@
+/* Marketplace Container */
 .marketplace-container {
   padding: 40px;
   background-color: #f4f4f4;
   min-height: 100vh;
 }
 
+/* Marketplace Title */
 .marketplace-title {
   text-align: center;
   font-size: 28px;
@@ -12,23 +14,24 @@
   margin-bottom: 20px;
 }
 
+/* Adjust grid to fit exactly 4 items per row */
 .item-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Align to right */
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+  gap: 30px; /* Space between items */
+  padding: 20px;
 }
 
+/* Item Card */
 .item-card {
-  width: 300px; /* Fixed width */
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
   padding: 10px;
   transition: box-shadow 0.3s ease-in-out;
+  width: 100%;
 }
-
 
 .item-card:hover {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
@@ -38,7 +41,7 @@
 .image-slider {
   position: relative;
   width: 100%;
-  height: 140px;
+  height: 140px; /* Smaller image */
   background-color: #eee;
   border-radius: 6px;
   overflow: hidden;
@@ -102,7 +105,7 @@
   width: 100%;
   padding: 8px;
   margin-top: 8px;
-  background-color: #007bff;
+  background-color: #007bff; /* Blue color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -113,5 +116,141 @@
 }
 
 .message-button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Wishlist and View Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.wishlist-button {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #e0e0e0; /* Default gray */
+  color: black;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.wishlist-button:hover {
+  background-color: #ff80ab; /* Lighter pink on hover */
+  color: white;
+}
+
+/* Search and Filter Section */
+/* Search and Filter Section */
+.search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-bar-container {
+  position: relative;
+  flex: 1;
+  margin-right: 20px; /* Add space between search bar and filter dropdown */
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px; /* Rounded corners */
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.clear-search {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+}
+
+.filter-dropdown {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px; /* Rounded corners */
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: white;
+  width: 200px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%; /* Adjusted to make the modal content larger */
+  max-height: 80%; /* Adjusted to make the modal content larger */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Image */
+.modal-image {
+  max-width: 70%; /* Reduce the maximum width of the image */
+  max-height: 70%; /* Reduce the maximum height of the image */
+  border-radius: 8px;
+  object-fit: contain; /* Ensure the image fits within the modal */
+}
+
+/* Close Button */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Modal Description */
+.modal-description {
+  margin-top: 20px;
+  max-height: 150px; /* Limit the height of the description */
+  overflow-y: auto; /* Add vertical scroll if content exceeds height */
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
 }
