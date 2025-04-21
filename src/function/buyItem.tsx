@@ -202,7 +202,7 @@ const ItemCard: React.FC<{ item: Item; onMessage: (_id: string) => void }> = ({
       {/* Item Details */}
       <div className="item-details">
         <h3 className="item-name">{item.name}</h3> {/* Display product name */}
-        <p className="item-price">${item.price}</p>
+        <p className="item-price">₹{item.price}</p>
         <p className="item-location">{item.location}</p>
         <p className="item-description">{item.description}</p>
         <button onClick={() => onMessage(item._id)} className="message-button">
